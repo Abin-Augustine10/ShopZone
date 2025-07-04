@@ -59,12 +59,12 @@ export default function Modal({
       >
         <div className="modal-content">
           <div className="modal-header">
-            <h3>Login</h3>
+            <h3 style={{ textAlign: 'center', width: '100%' }}>Login</h3>
             <button className="close-modal" onClick={closeModal}>×</button>
           </div>
           <form onSubmit={handleLogin}>
             <div className="form-group">
-              <label htmlFor="email">Email:</label>
+              <label htmlFor="email">Email</label>
               <input 
                 type="email" 
                 name="email" 
@@ -73,7 +73,7 @@ export default function Modal({
               />
             </div>
             <div className="form-group">
-              <label htmlFor="password">Password:</label>
+              <label htmlFor="password">Password</label>
               <input 
                 type="password" 
                 name="password" 
@@ -81,11 +81,11 @@ export default function Modal({
                 onChange={handleInputChange}
               />
             </div>
-            <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>
+            <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '1rem' }}>
               Login
             </button>
           </form>
-          <p style={{ textAlign: 'center', marginTop: '1rem' }}>
+          <p style={{ textAlign: 'center', marginTop: '0rem', marginBottom: '2rem' }}>
             Don&apos;t have an account?{' '}
             <a 
               href="#" 
@@ -104,12 +104,12 @@ export default function Modal({
       >
         <div className="modal-content">
           <div className="modal-header">
-            <h3>Register</h3>
+            <h3 style={{ textAlign: 'center', width: '100%' }}>SignUp</h3>
             <button className="close-modal" onClick={closeModal}>×</button>
           </div>
           <form onSubmit={handleRegister}>
             <div className="form-group">
-              <label htmlFor="regName">Full Name:</label>
+              <label htmlFor="regName">Full Name</label>
               <input 
                 type="text" 
                 name="regName" 
@@ -118,7 +118,7 @@ export default function Modal({
               />
             </div>
             <div className="form-group">
-              <label htmlFor="regEmail">Email:</label>
+              <label htmlFor="regEmail">Email</label>
               <input 
                 type="email" 
                 name="regEmail" 
@@ -127,7 +127,7 @@ export default function Modal({
               />
             </div>
             <div className="form-group">
-              <label htmlFor="regPassword">Password:</label>
+              <label htmlFor="regPassword">Password</label>
               <input 
                 type="password" 
                 name="regPassword" 
@@ -135,8 +135,8 @@ export default function Modal({
                 onChange={handleInputChange}
               />
             </div>
-            <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>
-              Register
+            <button type="submit" className="btn btn-primary" style={{ width: '100%' , marginTop: '1rem' }}>
+              SignUp
             </button>
           </form>
         </div>
