@@ -1,9 +1,9 @@
 export default function Footer() {
   return (
-    <footer className="footer" id="contact">
+    <footer className="footer">
       <div className="container">
         <div className="footer-content">
-          <div className="footer-section">
+          <div className="footer-section" id="about">
             <h3>About ShopZone</h3>
             <p>Your trusted online marketplace for quality products at competitive prices. We deliver excellence with every purchase.</p>
           </div>
@@ -27,7 +27,7 @@ export default function Footer() {
               <li><a href="#">Track Order</a></li>
             </ul>
           </div>
-          <div className="footer-section">
+          <div className="footer-section" id="contact">
             <h3>Contact Info</h3>
             <p>📧 support@shopzone.com</p>
             <p>📞 +1 (555) 123-4567</p>
