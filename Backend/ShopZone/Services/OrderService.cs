@@ -16,7 +16,7 @@ namespace ShopZone.Services
             _cartService = cartService;
         }
 
-        public async Task<OrderDto> CreateOrderAsync(string userId, CreateOrderDto createOrderDto)
+        public async Task<OrderDto> CreateOrderAsync(int userId, CreateOrderDto createOrderDto)
         {
             var cart = await _context.Carts
                 .Include(c => c.CartItems)
@@ -51,7 +51,7 @@ namespace ShopZone.Services
             return await GetOrderByIdAsync(order.Id, userId) ?? throw new InvalidOperationException("Order not found");
         }
 
-        public async Task<IEnumerable<OrderDto>> GetUserOrdersAsync(string userId)
+        public async Task<IEnumerable<OrderDto>> GetUserOrdersAsync(int userId)
         {
             var orders = await _context.Orders
                 .Include(o => o.OrderItems)
@@ -63,7 +63,7 @@ namespace ShopZone.Services
             return orders.Select(MapToOrderDto);
         }
 
-        public async Task<OrderDto?> GetOrderByIdAsync(int orderId, string userId)
+        public async Task<OrderDto?> GetOrderByIdAsync(int orderId, int userId)
         {
             var order = await _context.Orders
                 .Include(o => o.OrderItems)

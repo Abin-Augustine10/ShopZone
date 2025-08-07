@@ -14,7 +14,7 @@ namespace ShopZone.Services
             _context = context;
         }
 
-        public async Task<CartDto> GetCartAsync(string userId)
+        public async Task<CartDto> GetCartAsync(int userId)
         {
             var cart = await _context.Carts
                 .Include(c => c.CartItems)
@@ -44,7 +44,7 @@ namespace ShopZone.Services
             };
         }
 
-        public async Task<CartDto> AddToCartAsync(string userId, AddToCartDto addToCartDto)
+        public async Task<CartDto> AddToCartAsync(int userId, AddToCartDto addToCartDto)
         {
             var cart = await _context.Carts
                 .Include(c => c.CartItems)
@@ -74,7 +74,7 @@ namespace ShopZone.Services
             return await GetCartAsync(userId);
         }
 
-        public async Task<CartDto> UpdateCartItemAsync(string userId, UpdateCartItemDto updateCartItemDto)
+        public async Task<CartDto> UpdateCartItemAsync(int userId, UpdateCartItemDto updateCartItemDto)
         {
             var cart = await _context.Carts
                 .Include(c => c.CartItems)
@@ -100,7 +100,7 @@ namespace ShopZone.Services
             return await GetCartAsync(userId);
         }
 
-        public async Task<bool> RemoveFromCartAsync(string userId, int productId)
+        public async Task<bool> RemoveFromCartAsync(int userId, int productId)
         {
             var cart = await _context.Carts
                 .Include(c => c.CartItems)
@@ -120,7 +120,7 @@ namespace ShopZone.Services
             return false;
         }
 
-        public async Task<bool> ClearCartAsync(string userId)
+        public async Task<bool> ClearCartAsync(int userId)
         {
             var cart = await _context.Carts
                 .Include(c => c.CartItems)

@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using ShopZone.DTOs;
 using ShopZone.Services;
+using System.Security.Claims;
 
 namespace ShopZone.Controllers
 {
@@ -21,8 +21,7 @@ namespace ShopZone.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateOrder([FromBody] CreateOrderDto createOrderDto)
         {
-            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            if (string.IsNullOrEmpty(userId))
+            if (!int.TryParse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value, out int userId))
                 return Unauthorized();
 
             try
@@ -39,8 +38,7 @@ namespace ShopZone.Controllers
         [HttpGet]
         public async Task<IActionResult> GetUserOrders()
         {
-            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            if (string.IsNullOrEmpty(userId))
+            if (!int.TryParse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value, out int userId))
                 return Unauthorized();
 
             var orders = await _orderService.GetUserOrdersAsync(userId);
@@ -50,8 +48,7 @@ namespace ShopZone.Controllers
         [HttpGet("{orderId}")]
         public async Task<IActionResult> GetOrder(int orderId)
         {
-            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            if (string.IsNullOrEmpty(userId))
+            if (!int.TryParse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value, out int userId))
                 return Unauthorized();
 
             var order = await _orderService.GetOrderByIdAsync(orderId, userId);

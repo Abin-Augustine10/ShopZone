@@ -4,8 +4,8 @@ namespace ShopZone.Services
 {
     public interface IOrderService
     {
-        Task<OrderDto> CreateOrderAsync(string userId, CreateOrderDto createOrderDto);
-        Task<IEnumerable<OrderDto>> GetUserOrdersAsync(string userId);
-        Task<OrderDto?> GetOrderByIdAsync(int orderId, string userId);
+        Task<OrderDto> CreateOrderAsync(int userId, CreateOrderDto createOrderDto);
+        Task<IEnumerable<OrderDto>> GetUserOrdersAsync(int userId);
+        Task<OrderDto?> GetOrderByIdAsync(int orderId, int userId);
     }
 }

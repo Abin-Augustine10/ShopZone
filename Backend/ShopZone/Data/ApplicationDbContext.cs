@@ -1,13 +1,13 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using ShopZone.Models;
 
 namespace ShopZone.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
+        public DbSet<ApplicationUser> User { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Cart> Carts { get; set; }
         public DbSet<CartItem> CartItems { get; set; }
@@ -67,6 +67,8 @@ namespace ShopZone.Data
                       .WithMany(p => p.OrderItems)
                       .HasForeignKey(oi => oi.ProductId);
             });
+
+            modelBuilder.Entity<ApplicationUser>().ToTable("User");
         }
     }
 }
